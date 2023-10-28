@@ -13,7 +13,7 @@ WebhookURL = "https://discord.com/api/webhooks/1167869383448727764/IE8mo1irZGeLe
 class App():
     version = "1.2"
     release_date = "28.10.23"
-    debug = True
+    debug = False
 
 
 msg_strokes = ["## Запуск!",
