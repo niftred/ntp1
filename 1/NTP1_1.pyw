@@ -11,18 +11,19 @@ WebhookURL = "https://discord.com/api/webhooks/1167869383448727764/IE8mo1irZGeLe
 
 
 class App():
-    version = "1.2"
-    release_date = "28.10.23"
+    version = "1.4.1"
+    release_date = "31.10.23"
+    build = "classic"
     debug = False
 
 
 msg_strokes = ["## Запуск!",
                f"IP: `{public_ip.get()}`",
-               f"OS: `{platform.system()}({platform.release()})`",
-               f"ОЗУ: `{psutil.virtual_memory().free/toMBnum}/{psutil.virtual_memory().total/toMBnum}`",
-               f"""Date: `{datetime.date.today().strftime("%d.%m.%y")}`""",
-               f"""Time: `{datetime.datetime.now().strftime("%H:%M")}`""",
-               f"NTP-INF: `{App.version}_{App.release_date}`"]
+               f"ОС: `{platform.system()}({platform.release()})`",
+               f"ОЗУ: `{int(psutil.virtual_memory().free/toMBnum)}/{int(psutil.virtual_memory().total/toMBnum)}`",
+               f"""Дата: `{datetime.date.today().strftime("%d.%m.%y")}`""",
+               f"""Время: `{datetime.datetime.now().strftime("%H:%M")}`""",
+               f"NTP-INF: ||`NTP1_1_v{App.version}_b-{App.build}-{App.release_date}`||"]
 
 
 def get_msg(msg_strokes_massive):
@@ -30,7 +31,7 @@ def get_msg(msg_strokes_massive):
     for i in range(len(msg_strokes)):
         msg = msg + msg_strokes[i] + "\n"
     if App.debug:
-        msg += "\nDebug Launch"
+        msg += "\n*Тестовый запуск*"
     return str(msg)
 
 
